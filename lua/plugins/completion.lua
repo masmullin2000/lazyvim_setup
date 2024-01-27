@@ -13,8 +13,12 @@ return {
         "hrsh7th/nvim-cmp",
         config = function()
             local cmp = require("cmp")
-            local default = require("cmp.config.default")()
             require("cmp").setup({
+                snippet = {
+                    expand = function(args)
+                        require("luasnip").lsp_expand(args.body)
+                    end,
+                },
                 mapping = {
                     ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
                     ["<C-k>"] = cmp.mapping(function(fallback)
@@ -63,8 +67,8 @@ return {
                 },
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
-                    -- { name = "copilot" },
-                    { name = "cody" },
+                    { name = "copilot" },
+                    --{ name = "cody" },
                     { name = "luasnip" },
                     { name = "path" },
                     { name = "buffer" },
@@ -75,22 +79,22 @@ return {
 
     --completion
     -- github copilot
-    -- {
-    --     "zbirenbaum/copilot.lua",
-    --     opts = {
-    --         suggestion = { enabled = true },
-    --         panel = { enabled = true },
-    --     },
-    -- },
-    -- sourcegraph cody
     {
-        "sourcegraph/sg.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
-        config = function()
-            require("sg").setup({
-                enable_cody = true,
-                accept_tos = true,
-            })
-        end,
+        "zbirenbaum/copilot.lua",
+        opts = {
+            suggestion = { enabled = true },
+            panel = { enabled = true },
+        },
     },
+    -- sourcegraph cody
+    -- {
+    --     "sourcegraph/sg.nvim",
+    --     dependencies = "nvim-lua/plenary.nvim",
+    --     config = function()
+    --         require("sg").setup({
+    --             enable_cody = true,
+    --             accept_tos = true,
+    --         })
+    --     end,
+    -- },
 }
