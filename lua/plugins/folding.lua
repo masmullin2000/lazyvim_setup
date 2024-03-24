@@ -47,7 +47,7 @@ return {
         end,
         -- open opening the buffer, close these fold kinds
         -- use `:UfoInspect` to get available fold kinds from the LSP
-        close_fold_kinds = { "imports", "comment" },
+        close_fold_kinds_for_ft = { "imports", "comment" },
         open_fold_hl_timeout = 300,
         -- fold_virt_text_handler = foldTextFormatter,
     },
