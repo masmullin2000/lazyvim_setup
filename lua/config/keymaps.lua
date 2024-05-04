@@ -5,6 +5,9 @@
 local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
 
+-- open new window
+map({"n","v"}, "<C-n>", ":!~/bin/open_nvim.sh<cr><cr>")
+
 -- movement
 map({"n", "v"}, "j", "h", { desc = "move left" })
 map({"n", "v"}, "k", "j", { desc = "move down" })
