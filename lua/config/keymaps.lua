@@ -6,13 +6,13 @@ local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
 
 -- open new window
-map({"n","v"}, "<C-n>", ":!~/bin/open_nvim.sh<cr><cr>")
+map({ "n", "v" }, "<C-n>", ":!~/bin/open_nvim.sh<cr><cr>")
 
 -- movement
-map({"n", "v"}, "j", "h", { desc = "move left" })
-map({"n", "v"}, "k", "j", { desc = "move down" })
-map({"n", "v"}, "i", "k", { desc = "move up" })
-map({"n", "v"}, "h", "i", { desc = "insert mode" })
+map({ "n", "v" }, "j", "h", { desc = "move left" })
+map({ "n", "v" }, "k", "j", { desc = "move down" })
+map({ "n", "v" }, "i", "k", { desc = "move up" })
+map({ "n", "v" }, "h", "i", { desc = "insert mode" })
 map("i", "jj", "<ESC>", { desc = "normal mode" })
 
 -- split movement
@@ -30,8 +30,21 @@ map("n", "<S-j>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- terminal
 -- floating terminal
-local lazyterm = function()  Util.terminal(nil, { cwd = Util.root() }) end
-map("n", "<leader>tt", lazyterm, { desc = "Terminal (root dir)" })
+-- local lazyterm = function()
+--     Util.terminal(nil, { cwd = Util.root() })
+-- end
+-- map("n", "<leader>tt", lazyterm, { desc = "Terminal (root dir)" })
+-- local floatterm = function()
+--     ":ToggleTerm direction=float size=0.8"
+-- end
+map("n", "<leader>tt", ":ToggleTerm direction=float<cr>", { desc = "Terminal (root dir)" })
+map("n", "<leader>tk", ":ToggleTerm direction=horizontal<cr>", { desc = "Terminal (root dir)" })
+map(
+    "n",
+    "<leader>tj",
+    ":ToggleTerm direction=vertical size=60<cr>",
+    { desc = "Terminal (root dir)" }
+)
 map("t", "<leader>tt", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
@@ -39,3 +52,12 @@ vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 map("n", "<A-j>", "zc", { desc = "Close fold" })
 map("n", "<A-l>", "zo", { desc = "Open fold" })
+
+local fullscreen = function()
+    vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
+end
+
+map({ "n", "v" }, "<C-m>", fullscreen, { desc = "Toggle fullscreen" })
+
+-- map({ "n", "v" }, "<C-C>", "\"+y", { desc = "copy" })
+-- map({ "n", "v" }, "<C-v>", "\"+p", { desc = "copy" })
