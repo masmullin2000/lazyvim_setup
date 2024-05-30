@@ -37,14 +37,10 @@ map("n", "<S-j>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 -- local floatterm = function()
 --     ":ToggleTerm direction=float size=0.8"
 -- end
-map("n", "<leader>tt", ":ToggleTerm direction=float<cr>", { desc = "Terminal (root dir)" })
-map("n", "<leader>tk", ":ToggleTerm direction=horizontal<cr>", { desc = "Terminal (root dir)" })
-map(
-    "n",
-    "<leader>tj",
-    ":ToggleTerm direction=vertical size=60<cr>",
-    { desc = "Terminal (root dir)" }
-)
+map("n", "<leader>tt", ":ToggleTerm direction=float<cr>", { desc = "Terminal" })
+map("n", "<leader>tk", ":ToggleTerm direction=horizontal<cr>", { desc = "Terminal" })
+map("n", "<leader>tj", ":ToggleTerm direction=vertical size=60<cr>", { desc = "Terminal" })
+map("n", "<leader>tl", ":2ToggleTerm<cr>", { desc = "Terminal" })
 map("t", "<leader>tt", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
