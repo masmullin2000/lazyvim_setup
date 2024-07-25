@@ -7,7 +7,7 @@ local g = vim.g
 g.mapleader = "\\"
 g.autoformat = false
 
-g.copiolt_no_tab_map = true
+g.copilot_no_tab_map = true
 g.copilot_assume_mapped = true
 
 local opt = vim.opt
@@ -36,8 +36,6 @@ if vim.g.neovide then
     vim.keymap.set("c", "<C-v>", "<C-R>+") -- Paste command mode
     vim.keymap.set("i", "<C-v>", "<C-R>+") -- Paste insert mode
 end
-
-vim.opt.clipboard = "unnamedplus"
 
 local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set

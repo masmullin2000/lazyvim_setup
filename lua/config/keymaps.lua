@@ -21,6 +21,14 @@ map("n", "<C-k>", "<C-w>j", { desc = "Go to lower window", remap = true })
 map("n", "<C-i>", "<C-w>k", { desc = "Go to upper window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
+-- split reposition 
+map("n", "<SC-j>", "<C-w><S-h>", { desc = "Go to left window", remap = true })
+map("n", "<SC-k>", "<C-w><S-j>", { desc = "Go to lower window", remap = true })
+map("n", "<SC-i>", "<C-w><S-k>", { desc = "Go to upper window", remap = true })
+map("n", "<SC-l>", "<C-w><S-l>", { desc = "Go to right window", remap = true })
+map("n", "<C-y>", ":vsplit<cr>", { desc = "Go to right window", remap = true })
+map("n", "<C-,>", ":split<cr>", { desc = "Go to right window", remap = true })
+
 -- tabs
 map("n", "<C-T>", "<cmd>tabnew<cr>", { desc = "New Tab" })
 map("n", "gt", "<cmd>tabnext<cr>", { desc = "Next Tab" })
