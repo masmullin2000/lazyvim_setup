@@ -60,8 +60,3 @@ map("n", "<A-l>", "zo", { desc = "Open fold" })
 local fullscreen = function()
     vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
 end
-
-map({ "n", "v" }, "<C-m>", fullscreen, { desc = "Toggle fullscreen" })
-
--- map({ "n", "v" }, "<C-C>", "\"+y", { desc = "copy" })
--- map({ "n", "v" }, "<C-v>", "\"+p", { desc = "copy" })

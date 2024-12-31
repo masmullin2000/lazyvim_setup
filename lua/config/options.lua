@@ -1,6 +1,7 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
+--
 
 local g = vim.g
 
@@ -29,13 +30,13 @@ g.neovide_cursor_animation_length = 0.05
 g.neovide_cursor_trail_length = 0.8
 vim.o.guifont = "Lilex Nerd Font Mono:h16"
 
-if vim.g.neovide then
-    vim.keymap.set("v", "<C-c>", '"+y') -- Copy
-    vim.keymap.set("n", "<C-v>", '"+P') -- Paste normal mode
-    vim.keymap.set("v", "<C-v>", '"+P') -- Paste visual mode
-    vim.keymap.set("c", "<C-v>", "<C-R>+") -- Paste command mode
-    vim.keymap.set("i", "<C-v>", "<C-R>+") -- Paste insert mode
-end
+-- if vim.g.neovide then
+vim.keymap.set("v", "<C-c>", '"+y') -- Copy
+vim.keymap.set("n", "<C-v>", '"+P') -- Paste normal mode
+vim.keymap.set("v", "<C-v>", '"+P') -- Paste visual mode
+vim.keymap.set("c", "<C-v>", "<C-R>+") -- Paste command mode
+vim.keymap.set("i", "<C-v>", "<C-R>+") -- Paste insert mode
+-- end
 
 local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
