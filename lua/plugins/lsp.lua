@@ -13,20 +13,6 @@ return {
                 },
             },
         },
-
-        -- "neovim/nvim-lspconfig",
-        -- opts = function(_, opts)
-        --     local keys = require("lazyvim.plugins.lsp.keymaps").get()
-        --
-        --     keys[#keys + 1] = { "<C-k>", false, mode = "i" } -- does not work, <C-k> still can active in insert mode
-        --     keys[#keys + 1] = { "gK", vim.lsp.buf.hover, desc = "show hover" } -- changed as it should be
-        --
-        --     opts.diagnostics = { -- set border for diagnostics floating
-        --         float = {
-        --             border = "rounded",
-        --         },
-        --     }
-        -- end,
     },
 
     {
@@ -40,9 +26,9 @@ return {
                     vim.keymap.set("n", "<leader>dr", function()
                         vim.cmd.RustLsp("debuggables")
                     end, { desc = "Rust Debuggables", buffer = bufnr })
-                    -- vim.keymap.set("n", "<S-k>", function()
-                    --     vim.cmd.RustLsp("hover", "actions")
-                    -- end, { desc = "Hover", buffer = bufnr })
+                    vim.keymap.set("n", "<S-k>", function()
+                        vim.cmd.RustLsp("hover", "actions")
+                    end, { desc = "Hover", buffer = bufnr })
                 end,
                 default_settings = {
                     -- rust-analyzer language server configuration
@@ -64,6 +50,7 @@ return {
                                 ["async-recursion"] = { "async_recursion" },
                             },
                         },
+                        rustfmt = { extraArgs = { "+nightly" } },
                     },
                 },
             },

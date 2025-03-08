@@ -21,13 +21,13 @@ return {
     {
         "LazyVim/LazyVim",
         opts = {
-            --colorscheme = "github_dark_colorblind",
-            --colorscheme = "github_dark"
-            --colorscheme = "tender",
+            -- colorscheme = "github_dark_colorblind",
+            -- colorscheme = "github_dark"
+            -- colorscheme = "tender",
             colorscheme = "gruvbox",
-            --colorscheme = "sonokai",
-            --colorscheme = "gruvbox-material",
-            --colorscheme = "horizon",
+            -- colorscheme = "sonokai",
+            -- colorscheme = "gruvbox-material",
+            -- colorscheme = "horizon",
         },
     },
 }

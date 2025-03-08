@@ -5,6 +5,7 @@ return {
 
         keys[#keys + 1] = { "<C-k>", false, mode = "i" }
         keys[#keys + 1] = { "<C-i>", false, mode = "i" }
+        keys[#keys + 1] = { "<S-k>", false, mode = "n" }
 
         opts.diagnostics = { -- set border for diagnostics floating
             float = {

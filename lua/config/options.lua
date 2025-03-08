@@ -30,14 +30,6 @@ g.neovide_cursor_animation_length = 0.05
 g.neovide_cursor_trail_length = 0.8
 vim.o.guifont = "Lilex Nerd Font Mono:h16"
 
--- if vim.g.neovide then
-vim.keymap.set("v", "<C-c>", '"+y') -- Copy
-vim.keymap.set("n", "<C-v>", '"+P') -- Paste normal mode
-vim.keymap.set("v", "<C-v>", '"+P') -- Paste visual mode
-vim.keymap.set("c", "<C-v>", "<C-R>+") -- Paste command mode
-vim.keymap.set("i", "<C-v>", "<C-R>+") -- Paste insert mode
--- end
-
 local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
 
@@ -53,3 +45,16 @@ end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+
+opt.clipboard = "unnamedplus"
+g.clipboard = {
+    name = "OSC 52",
+    copy = {
+        ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+        ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+        ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+        ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    },
+}
