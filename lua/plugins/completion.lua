@@ -11,17 +11,6 @@ return {
                 ["<Down>"] = { "select_next", "fallback" },
                 ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
             },
-            sources = {
-                default = { "copilot", "lsp", "buffer" },
-                providers = {
-                    copilot = {
-                        name = "copilot",
-                        module = "blink-cmp-copilot",
-                        score_offset = 100,
-                        async = true,
-                    },
-                },
-            },
         },
     },
 }

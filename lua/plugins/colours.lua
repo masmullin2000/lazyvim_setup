@@ -6,10 +6,34 @@
 -- * override the configuration of LazyVim plugins
 --
 return {
-    -- colorschemes
-    { "ellisonleao/gruvbox.nvim", opts = {
-        contrast = "hard",
-    } },
+    {
+        "ellisonleao/gruvbox.nvim",
+        opts = {
+            terminal_colors = true,
+            contrast = "hard",
+            bold = true, -- Enable bold font
+            italic = {
+                strings = false,
+                emphasis = false,
+                comments = true,
+                operators = false,
+                folds = false,
+            },
+            underline = true,
+            undercurl = true,
+            strikethrough = true,
+            dim_inactive = false,
+            transparent_mode = true,
+            -- You can also override specific highlight groups or palette colors here
+            -- palette_overrides = {},
+            -- overrides = {},
+        },
+        priority = 1000,
+        -- config = function(_, opts)
+        --     require("gruvbox").setup(opts)
+        --     vim.cmd("colorscheme gruvbox")
+        -- end,
+    },
 
     { "projekt0n/github-nvim-theme" },
     { "sainnhe/sonokai" },
