@@ -1,16 +1,19 @@
 return {
     "neovim/nvim-lspconfig",
-    opts = function(_, opts)
-        local keys = require("lazyvim.plugins.lsp.keymaps").get()
-
-        keys[#keys + 1] = { "<C-k>", false, mode = "i" }
-        keys[#keys + 1] = { "<C-i>", false, mode = "i" }
-        keys[#keys + 1] = { "<S-k>", false, mode = "n" }
-
-        opts.diagnostics = { -- set border for diagnostics floating
+    opts = {
+        servers = {
+            ["*"] = {
+                keys = {
+                    { "<C-k>", false, mode = "i" },
+                    { "<C-i>", false, mode = "i" },
+                    { "<S-k>", false, mode = "n" },
+                },
+            },
+        },
+        diagnostics = {
             float = {
                 border = "rounded",
             },
-        }
-    end,
+        },
+    },
 }
